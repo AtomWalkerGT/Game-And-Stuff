@@ -59,7 +59,7 @@ def choose_organization():
         elif choice in ["3", "independent", "i find my way"]:
             return "Independent"
         if choice in ["sans", "skeleton", "H", "hermann", "Hermann"]:
-            return "Hermann, of The General Directorate"
+            return "Renato H, The Red Wake of The General Directorate"
            
         if choice in ["J.C", "Jack", "Jack Cooper", 'jack cooper', "Coordinator", "coordinator", "pilot", "Pilot"]:
             return "J. Cooper, The Hero of Solora"
@@ -96,14 +96,14 @@ else:
     print_slow("\nDeactivating personal identity, rerouting from terminal...", 1.5)
 
 # Special cases for specific inputs - "Cooper" and "Hermann", easters eggs to the main story of Season 1 where you get to play protagonists woo!!
-if organization == "Hermann, of The General Directorate":
+if organization == "Renato H, The Red Wake of The General Directorate":
     pass
-if get_player_name() == "Hermann" or get_player_name() == "hermann" or get_player_name() == "H" or get_player_name() == "h" or get_player_name() == "Sans" or get_player_name() == "skeleton" or get_player_name() == "skeleton guy":
-    player_organization = "Hermann, of The General Directorate"
+if player_name.lower() in ["Hermann", "hermann", "H", "h", "Sans", "skeleton", "skeleton guy"]:
+    player_organization = "Renato H, The Red Wake of The General Directorate"
     equipped_gear = "Specialized Kit \"Alpha\", Experimental Tuned Relay Band"
     health = 200
     max_posture = 1000
-    print_slow("\n\"Decrypting.. Accessed. Welcome, H.", 0.5)
+    print_slow("\n\"Decrypting.. Accessed. Welcome back, Renato.", 0.5)
 
     print_slow("░░░░░░░░██████████████████", 0.1)
     print_slow("░░░░████░░░░░░░░░░░░░░░░░░████", 0.1)
@@ -123,12 +123,12 @@ if get_player_name() == "Hermann" or get_player_name() == "hermann" or get_playe
 
 elif organization == "J. Cooper, The Hero of Solora":
     pass
-elif get_player_name() == "Jack Cooper" or get_player_name() == "cooper" or get_player_name() == "J.C" or get_player_name() == "jack" or get_player_name() == "J. Cooper":
+elif player_name.lower() in ["jack cooper", "cooper", "j.c", "jack", "j. cooper"]:
     player_organization = "J. Cooper, The Hero of Solora"
     equipped_gear = "SEO's Jumpkit and Coordinator Helmet, SERE's Kit, Storm's Blade"
     health = 500
     max_posture = 500
-    print_slow("\nInitializing Profile... Welcome back, Cooper.", 0.9)
+    print_slow("\nInitializing Profile... Welcome back, Coordinator Cooper.", 0.9)
 
 
 # Display the finalized profile, hell yeah - Final part of the example, the combat system will be done in another file
