@@ -1,1 +1,27 @@
-print ("hello world")
+# Standalone Personal Combat System (SPCS) - Meant to be a simple system to see how I can make mechanics for a combat system
+
+# Note: time and random are components utilized by the system, gives off randomness and partial delay
+import random
+import time
+
+# The Big Wall of Code yo
+
+def run_combat_simulation(player_health, player_posture):
+    # player_health and player_posture are health and posture respectively, serves as primary parameters/variables
+
+    # temporary variables for this initial system
+    current_health = player_health
+    max_posture = player_posture
+    current_posture = player_posture
+
+    enemy_health = 200
+    enemy_current_posture = 100
+    enemy_max_posture = 100
+
+
+# Okay, ACTUALlY The Combat System in the another file ooo 
+
+
+
+
+    
