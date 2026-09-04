@@ -58,10 +58,9 @@ def choose_organization():
             return "UNEC"
         elif choice in ["3", "independent", "i find my way"]:
             return "Independent"
-        if choice in ["sans", "skeleton", "H", "hermann", "Hermann"]:
+        elif choice in ["sans", "skeleton", "h", "hermann", "renato", "renato h", "the red wake"]:
             return "Renato H, The Red Wake of The General Directorate"
-           
-        if choice in ["J.C", "Jack", "Jack Cooper", 'jack cooper', "Coordinator", "coordinator", "pilot", "Pilot"]:
+        elif choice in ["j.c", "jack", 'jack cooper', "coordinator", "pilot", "cooper", "j. cooper"]:
             return "J. Cooper, The Hero of Solora"
 
         # If the input is invalid, the loop continues instead of crashing or giving a default path
@@ -72,73 +71,130 @@ boot_terminal()
 player_name = get_player_name()
 organization = choose_organization()
 
+# -- Clean Profile --
+player_organization = ""
+equipped_gear = ""
+health = 100
+max_posture = 100
+
+
 # Setup base stats and gear based on organization choice
 if organization == "Agency":
-    player_organization = "I will protect my people. (Agency)"
+    choose_organization = "I will protect my people. (Agency)"
     equipped_gear = "Standard Vanguard Outfit, Frontier-Spec Assault Rifle"
     health = 110
     max_posture = 300
-    print_slow("\nPersonnel Detected. Initializing Profile...", 1.5)
-    print_slow("Welcome back, operative.", 1.0)
+    print("\nPersonnel Detected. Initializing Profile...")
+    print("Welcome back, operative.")
 
 elif organization == "UNEC":
-    player_organization = "Humanity is where I belong. (UNEC)"
+    choose_organization = "Humanity is where I belong. (UNEC)"
     equipped_gear = "Magnetic Exo-suit, Standard Expedition Rifle"
     health = 150
     max_posture = 200
-    print_slow("\nRerouting to Expedition Corp's mainframe...", 1.5)
+    print("\nRerouting to Expedition Corp's mainframe...")
 
-else:
-    player_organization = "I find my way. (Independent)"
+elif organization == "Independent":
+    choose_organization = "I find my way. (Independent)"
     equipped_gear = "Personalized Weapon, Explorer's Kit, Grappling"
     health = 100
     max_posture = 100
-    print_slow("\nDeactivating personal identity, rerouting from terminal...", 1.5)
+    print("\nDeactivating personal identity, rerouting from terminal...")
 
 # Special cases for specific inputs - "Cooper" and "Hermann", easters eggs to the main story of Season 1 where you get to play protagonists woo!!
-if organization == "Renato H, The Red Wake of The General Directorate":
-    pass
-if player_name.lower() in ["Hermann", "hermann", "H", "h", "Sans", "skeleton", "skeleton guy"]:
-    player_organization = "Renato H, The Red Wake of The General Directorate"
-    equipped_gear = "Specialized Kit \"Alpha\", Experimental Tuned Relay Band"
-    health = 200
-    max_posture = 1000
-    print("\n\"Decrypting.. Accessed. Welcome back, Renato.")
+if organization in ["sans", "skeleton", "h", "hermann", "renato", "renato h", "the red wake"]: 
+        choose_organization = "Renato H, The Red Wake of The General Directorate"
+        equipped_gear = "Specialized Kit Alpha, Experimental Tuned Relay Band"
+        health = 200
+        max_posture = 1000
 
-    print("░░░░░░░░██████████████████")
-    print("░░░░████░░░░░░░░░░░░░░░░░░████")
-    print("░░██░░░░░░░░░░░░░░░░░░░░░░░░░░██")
-    print("░░██░░░░░░░░░░░░░░░░░░░░░░░░░░██")
-    print("██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░██")
-    print("██░░░░░░░░░░░░░░░░░░░░██████░░░░██")
-    print("██░░░░░░░░░░░░░░░░░░░░██████░░░░██")
-    print("██░░░░██████░░░░██░░░░██████░░░░██")
-    print("░░██░░░░░░░░░░██████░░░░░░░░░░██")
-    print("████░░██░░░░░░░░░░░░░░░░░░██░░████")
-    print("██░░░░██████████████████████░░░░██")
-    print("██░░░░░░██░░██░░██░░██░░██░░░░░░██")
-    print("░░████░░░░██████████████░░░░████░░")
-    print("░░░░░░████░░░░░░░░░░░░░░████░░░░░░")
-    print("░░░░░░░░░░██████████████░░░░░░░░░░")
+        print("\n\"Decrypting.. Accessed. Welcome back, Renato.")
+        print("-----------------------------------------------------")
+        print("░░░░░░░░██████████████████")
+        print("░░░░████░░░░░░░░░░░░░░░░░░████")
+        print("░░██░░░░░░░░░░░░░░░░░░░░░░░░░░██")
+        print("░░██░░░░░░░░░░░░░░░░░░░░░░░░░░██")
+        print("██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░██")
+        print("██░░░░░░░░░░░░░░░░░░░░██████░░░░██")
+        print("██░░░░░░░░░░░░░░░░░░░░██████░░░░██")
+        print("██░░░░██████░░░░██░░░░██████░░░░██")
+        print("░░██░░░░░░░░░░██████░░░░░░░░░░██")
+        print("████░░██░░░░░░░░░░░░░░░░░░██░░████")
+        print("██░░░░██████████████████████░░░░██")
+        print("██░░░░░░██░░██░░██░░██░░██░░░░░░██")
+        print("░░████░░░░██████████████░░░░████░░")
+        print("░░░░░░████░░░░░░░░░░░░░░████░░░░░░")
+        print("░░░░░░░░░░██████████████░░░░░░░░░░")
 
-elif organization == "J. Cooper, The Hero of Solora":
-    pass
-elif player_name.lower() in ["jack cooper", "cooper", "j.c", "jack", "j. cooper"]:
-    player_organization = "J. Cooper, The Hero of Solora"
-    equipped_gear = "SEO's Jumpkit and Coordinator Helmet, SERE's Kit, Storm's Blade"
-    health = 500
-    max_posture = 500
-    print_slow("\nInitializing Profile... Welcome back, Coordinator Cooper.", 0.9)
+if organization in ["j.c", "jack", 'jack cooper', "coordinator", "pilot", "cooper", "j. cooper"]:   
+        choose_organization = "J. Cooper, The Hero of Solora"
+        equipped_gear = "SEO's Jumpkit and Coordinator Helmet, SERE's Kit, Storm's Blade"
+        health = 500
+        max_posture = 500
+        print("\nInitializing Profile... Welcome back, Coordinator Cooper.")
+
+        print(r"""          .       .
+           .  |  .
+        \ | /    +
+    *        \|/
+        --==> * <==--   '
+       +     /|\   .
+        / | \
+    .      '  |  '       *
+          |
+        .     '    .""")
 
 # Additional: player_name.lower() helps input with "case-insenstivity", so "cooper", "Cooper" works the same - "in" function checks if it's a valid name
 
 
+# NAME SPECIFIC EASTER-EGGS (specifically about season 1 protagonists, if you got their names right, you play as them.)
+if player_name.lower() in ["jack cooper", "cooper", "j.c", "jack", "j. cooper"]:
+        choose_organization = "J. Cooper, The Hero of Solora"
+        equipped_gear = "SEO's Jumpkit and Coordinator Helmet, SERE's Kit, Storm's Blade"
+        health = 500
+        max_posture = 500
+        print("\nInitializing Profile... Welcome back, Coordinator Cooper.")
+
+        print(r"""          .       .
+                   .  |  .
+                \ | /    +
+            *        \|/
+                --==> * <==--   '
+               +     /|\   .
+                / | \
+            .      '  |  '       *
+                  |
+                .     '    .""")
+
+elif player_name.lower() in ["hermann", "h", "sans", "skeleton", "skeleton guy", "renato", "renato h", "the red wake"]:
+        choose_organization = "Renato H, The Red Wake of The General Directorate"
+        equipped_gear = "Specialized Kit Alpha, Experimental Tuned Relay Band"
+        health = 200
+        max_posture = 1000
+        print("\n\"Decrypting.. Accessed. Welcome back, Renato.")
+
+        print("░░░░░░░░██████████████████")
+        print("░░░░████░░░░░░░░░░░░░░░░░░████")
+        print("░░██░░░░░░░░░░░░░░░░░░░░░░░░░░██")
+        print("░░██░░░░░░░░░░░░░░░░░░░░░░░░░░██")
+        print("██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░██")
+        print("██░░░░░░░░░░░░░░░░░░░░██████░░░░██")
+        print("██░░░░░░░░░░░░░░░░░░░░██████░░░░██")
+        print("██░░░░██████░░░░██░░░░██████░░░░██")
+        print("░░██░░░░░░░░░░██████░░░░░░░░░░██")
+        print("████░░██░░░░░░░░░░░░░░░░░░██░░████")
+        print("██░░░░██████████████████████░░░░██")
+        print("██░░░░░░██░░██░░██░░██░░██░░░░░░██")
+        print("░░████░░░░██████████████░░░░████░░")
+        print("░░░░░░████░░░░░░░░░░░░░░████░░░░░░")
+        print("░░░░░░░░░░██████████████░░░░░░░░░░")
+        
 
 # Display the finalized profile, hell yeah - Final part of the example, the combat system will be done in another file
 print("\n--- IDENTITY PROFILE FINALIZED ---")
 print("--------------------------------------------------------")
 print(f"Identity: {player_name}")
-print(f"Path/Organization: {player_organization}")
+print(f"Path/Organization: {choose_organization}")
 print(f"Equipment: {equipped_gear}")
 print(f"Vitality (Health): {health}")
 print(f"Stability (Posture): {max_posture}")
