@@ -16,12 +16,12 @@ def print_slow(text, delay=0.05):
 # --- This is the main terminal boot sequence ooo, a small prototype to help me with --
 def boot_terminal():
     """Simulates the terminal activation sequence."""
-    print("--- Activating Terminal... ---", 0.2)
-    print(".....", 0.1)
-    print("....", 0.2)
-    print("...", 0.1)
-    print("--- Terminal Activated, opening... ---", 0.1)
-    print("--- Welcome to World's Descention First Project! Made by yours truly, Cooper ---", 0.1)
+    print("--- Activating Terminal... ---")
+    print(".....")
+    print("....")
+    print("...")
+    print("--- Terminal Activated, opening... ---")
+    print("--- Welcome to World's Descention First Project! Made by yours truly, Cooper ---")
 
 # --- the function is for names, future-me, use this as an example lmao --
 def get_player_name():
@@ -38,12 +38,12 @@ def get_player_name():
 def choose_organization():
     """Forces the player to pick a valid organization using a loop and string cleaning."""
     time.sleep(0.5)
-    print("\nNow, new fella - pick a group that fits you the most:", 0.5)
-    print("--------------------------------------------------------", 0.5)
-    print(" 1. [Agency] - I will protect my people. (Frontier-Spec)", 0.5)
-    print(" 2. [UNEC] - Humanity is where I belong. (Hard Sci-Fi)", 0.5)
-    print(" 3. [Independent] - I choose my own belief. (Explorer)", 0.5)
-    print("---------------------------------------------------", 0.5)
+    print("\nNow, new fella - pick a group that fits you the most:")
+    print("--------------------------------------------------------")
+    print(" 1. [Agency] - I will protect my people. (Frontier-Spec)")
+    print(" 2. [UNEC] - Humanity is where I belong. (Hard Sci-Fi)")
+    print(" 3. [Independent] - I choose my own belief. (Explorer)")
+    print("--------------------------------------------------------")
 
 
     # Loop function - helps one to pick an option without crashing the program completely
@@ -103,7 +103,7 @@ if player_name.lower() in ["Hermann", "hermann", "H", "h", "Sans", "skeleton", "
     equipped_gear = "Specialized Kit \"Alpha\", Experimental Tuned Relay Band"
     health = 200
     max_posture = 1000
-    print("\n\"Decrypting.. Accessed. Welcome back, Renato.", 0.5)
+    print("\n\"Decrypting.. Accessed. Welcome back, Renato.")
 
     print("░░░░░░░░██████████████████")
     print("░░░░████░░░░░░░░░░░░░░░░░░████")
@@ -137,9 +137,9 @@ elif player_name.lower() in ["jack cooper", "cooper", "j.c", "jack", "j. cooper"
 # Display the finalized profile, hell yeah - Final part of the example, the combat system will be done in another file
 print("\n--- IDENTITY PROFILE FINALIZED ---")
 print("--------------------------------------------------------")
-print(f"Identity: {player_name}", 0.5)
-print(f"Path/Organization: {player_organization}", 0.5)
-print(f"Equipment: {equipped_gear}", 0.5)
-print(f"Vitality (Health): {health}", 1.5)
-print(f"Stability (Posture): {max_posture}", 1.5)
+print(f"Identity: {player_name}")
+print(f"Path/Organization: {player_organization}")
+print(f"Equipment: {equipped_gear}")
+print(f"Vitality (Health): {health}")
+print(f"Stability (Posture): {max_posture}")
 print("--------------------------------------------------------")
